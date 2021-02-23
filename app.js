@@ -21,6 +21,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+var service = require('./routes/service');
+
+
+const port=8000;
+app.listen(port, ()=>{
+  console.log("corriendo en el puerto" + port)
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
