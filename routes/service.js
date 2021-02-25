@@ -1,6 +1,12 @@
 import express from "express";
+const router = express.Router();
 import ServicesController from "../controller/ServicesController.js";
 var services = new ServicesController();
 router.get("/", services.index);
+router.get("/test", services.test);
+router.post("/test", services.test);
+router.get("/divisas", services.divisas);
+router.post("/divisas", services.divisas);
+router.get("/interes", services.interes);
+router.post("/interes", services.interes);
 export default router;
-export default router;s

@@ -4,7 +4,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import mustacheExpress from "mustache-express";
-import indexRouter from "./routes/routes.js";
+import indexRouter from "./routes/service.js";
 const __dirname = "./";
 var app = express();
 
@@ -12,6 +12,7 @@ var app = express();
 app.engine("html", mustacheExpress());
 app.set("view engine", "html");
 app.set("views", __dirname + "views");
+
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use(function (req, res, next) {
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  console.log(err.message);
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
